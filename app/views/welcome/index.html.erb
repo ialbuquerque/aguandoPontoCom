@@ -1,0 +1,50 @@
+<h1>Aguando.com</h1>
+
+<h4>Não mate sua plantinha</h4>
+</br>
+<p id="notice"><%= notice %></p>
+<%= form_tag(root_url, method: :get) do %>
+  <div class="form-group">
+    <%= label_tag 'Tipo de planta' %><br>
+    <%= select_tag :plant_type, options_from_collection_for_select(PlantType.all, :id, :name),
+      class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag 'Zona climática' %><br>
+    <%= select_tag :climate_zone, options_from_collection_for_select(ClimateZone.all, :id, :name), class: 'form-control' %>
+  </div>
+  <%= submit_tag 'Salve minha plantinha!', class: 'btn btn-default' %>
+<% end %>
+</br>
+
+<% if @water_frequencies.any? %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Xícaras de água </th>
+        <th>Frequência por semana</th>
+        <th>Observações</th>
+        <th>Tipo de planta</th>
+        <th>Zona climática</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @water_frequencies.each do |water_frequency| %>
+        <tr>
+          <td><%= water_frequency.value %></td>
+          <td><%= water_frequency.frequency %></td>
+          <td><%= water_frequency.observation %></td>
+          <td><%= water_frequency.plant_type.name %></td>
+          <td><%= water_frequency.climate_zone.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h4> <%= link_to 'Compartilhe sua experiência conosco.', new_water_frequency_path %> </h4>
+<% elsif @already_searched == true %>
+  <h4> Não encontramos registros :( </h4>
+  <h4> <%= link_to 'Vamos registrar?', new_water_frequency_path %> </h4>
+<% else %>
+  <h4> <%= link_to 'Colabore!', new_water_frequency_path %> </h4>
+<% end %>

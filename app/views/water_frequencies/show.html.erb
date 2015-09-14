@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @water_frequency.value %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @water_frequency.frequency %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @water_frequency.observation %>
+</p>
+
+<p>
+  <strong>Plant type:</strong>
+  <%= @water_frequency.plant_type.name %>
+</p>
+
+<p>
+  <strong>Climate zone:</strong>
+  <%= @water_frequency.climate_zone.name %>
+</p>
+
+<%= link_to 'Edit', edit_water_frequency_path(@water_frequency) %> |
+<%= link_to 'Back', water_frequencies_path %>

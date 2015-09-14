@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 1
+  frequency: 1
+  observation: MyText
+  plant_type_id: 
+  climate_zone_id: 
+
+two:
+  value: 1
+  frequency: 1
+  observation: MyText
+  plant_type_id: 
+  climate_zone_id: 
